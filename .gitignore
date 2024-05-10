@@ -10,3 +10,4 @@ test.ipynb
 *.html
 Ignore_Folder
 *.vs
+*test*
