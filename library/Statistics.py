@@ -1,7 +1,12 @@
+import sys
+import os
+import math
+sys.path.append(os.path.abspath("."))
+
 from collections import Counter
 import matplotlib.pyplot as plt
 from typing import List
-from Linear_Algebra import sum_of_squares
+from library.Linear_Algebra import sum_of_squares, dot
 
 def mean(xs: List[float]) -> float:
     return sum(xs)/ len(xs)
@@ -52,5 +57,26 @@ def variance(xs: List[float]) -> float:
     deviations = de_mean(xs)
     return sum_of_squares(deviations) / (n - 1)
 
+def standard_deviation(xs: List[float]) -> float:
+    """The standard deviation is the square root of the variance"""
+    return math.sqrt(variance(xs))
 
+def interquartile_range(xs: List[float]) -> float:
+    """Returns the difference between the 75th percentile and the 25th percentile"""
+    return quantile(xs, 0.75) - quantile(xs, 0.25)
+
+def covariance(xs: List[float], ys: List[float]) -> float:
+    assert len(xs) == len(ys)
+
+    return dot(de_mean(xs), de_mean(ys)) / (len(xs) - 1)
+
+def correlation(xs: List[float], ys: List[float]) -> float:
+    """Measures how much xs and ys vary in tandem about their means"""
+    stdev_x = standard_deviation(xs)
+    stdev_y = standard_deviation(ys)
+
+    if stdev_x > 0 and stdev_y > 0:
+        return covariance(xs, ys) / stdev_x / stdev_y
+    else:
+        return 0 # if no variation, correlation is zero
 
