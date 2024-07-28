@@ -18,7 +18,6 @@ def normal_cdf(x: float, mu:float = 0, sigma: float = 1) -> float:
 def bernoulli_trial(p: float) -> int:
     """Returns 1 with probability p and 0 with probability 1-p"""
     value = random.random()
-    print(value)
     return 1 if value < p else 0
 
 def binomial(n: int, p:float) -> int:
