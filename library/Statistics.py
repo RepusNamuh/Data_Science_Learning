@@ -1,8 +1,7 @@
 import sys
-import os
-import math
-sys.path.append(os.path.abspath("."))
+sys.path.append(r"f:\\Data_Science_Learning")
 
+import math
 from collections import Counter
 import matplotlib.pyplot as plt
 from typing import List

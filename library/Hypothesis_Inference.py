@@ -1,11 +1,11 @@
-from typing import Tuple
+import sys
+sys.path.append(r"f:\\Data_Science_Learning")
 
+from typing import Tuple
 from matplotlib.pylab import norm
 from networkx import sudoku_graph
 from library.Probability import normal_cdf, inverse_normal_cdf
 import math
-
-
 
 def normal_approximation_to_binomial(n: int, p:float) -> Tuple[float, float]:
     """Returns mu and signma corresponding to a Binomial(n, p)"""

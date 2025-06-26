@@ -1,3 +1,6 @@
+import sys
+sys.path.append(r"f:\\Data_Science_Learning")
+
 from library.Linear_Algebra import Vector, dot, distance, scalar_multiply, add, vector_mean
 from typing import Callable, TypeVar, List, Iterator
 import random
